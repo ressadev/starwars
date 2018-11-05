@@ -1,0 +1,11 @@
+﻿<div class="form-group">
+	<label [for]="name">{{label}}</label>
+	<ng-container *ngIf="!readonly">
+		<input [(ngModel)]="value" [name]="name" />
+	</ng-container>
+	<ng-container *ngIf="readonly">
+		<p class="text-box-readonly">
+			<span name="name">{{value}}</span>
+		</p>
+	</ng-container>
+</div>

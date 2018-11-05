@@ -1,0 +1,9 @@
+﻿<div class="form-group">
+	<label [for]="name">{{label}}</label>
+	<div class="radio">
+		<label *ngFor="let item of enumValues">
+			<input [name]="name" type="radio" [checked]="item.value==value" (change)="updateValue(item.value)" />
+			{{item.text}}
+		</label>
+	</div>
+</div>

@@ -1,0 +1,73 @@
+﻿<section>
+	<form #searchForm="ngForm" (ngSubmit)="onSearch()">
+		<div class="flexed-form">
+			<div class="form-col">
+				<editor-enum [enumValues]="EStarWarsDataType" 
+				             [(value)]="criteria.StarWarsDataType" 
+				             layout="radio"
+				             (valueChange)="onStarwarsDataTypeValueChange($event)"></editor-enum>
+			</div>
+		</div>
+		<div class="flexed-form">
+			<div *ngIf="criteria.StarWarsDataType" class="flexed-form">
+				<div class="form-col">
+					<editor-text *ngIf="criteria.StarWarsDataType==EStarWarsDataType.People ||
+										criteria.StarWarsDataType==EStarWarsDataType.Planets ||
+										criteria.StarWarsDataType==EStarWarsDataType.Species ||
+										criteria.StarWarsDataType==EStarWarsDataType.Starships ||
+										criteria.StarWarsDataType==EStarWarsDataType.Vehicles"
+					             [(value)]="criteria.Name"
+					             label="Name"></editor-text>
+				</div>
+				<div class="form-col">
+					<editor-text *ngIf="criteria.StarWarsDataType==EStarWarsDataType.Starships ||
+										criteria.StarWarsDataType==EStarWarsDataType.Vehicles"
+					             [(value)]="criteria.Model"
+					             label="Model"></editor-text>
+				</div>
+				<div class="form-col">
+					<editor-text *ngIf="criteria.StarWarsDataType==EStarWarsDataType.Films"
+					             [(value)]="criteria.Title"
+					             label="Title"></editor-text>
+				</div>
+				<div class="form-buttons">
+					<button type="submit" class="btn btn-success">Search</button>
+					<button type="reset" class="btn btn-default" (click)="onClear()">Clear filter</button>
+					<button type="button" class="btn btn-default" (click)="onShowAll()">Overview</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
+
+<ng-container *ngIf="searched">
+	<div class="table-wrapper">
+		<table class="table table-condensed table-bordered items-table">
+			<thead>
+				<tr>
+					<th>View detail</th>
+					<th *ngIf="criteria.StarWarsDataType != EStarWarsDataType.Films">Name</th>
+					<th *ngIf="criteria.StarWarsDataType == EStarWarsDataType.Films">Films</th>
+					<th>Created</th>
+					<th>Edited</th>
+					<th>Url</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of data.results">
+					<td>
+						<a class="btn btn-sm" (click)="onDetail(item.url)">
+							<i class="fa fa-info-circle"></i>
+							<span>&nbsp;Click for details</span>
+						</a>
+					</td>
+					<td *ngIf="criteria.StarWarsDataType != EStarWarsDataType.Films">{{item.name}}</td>
+					<td *ngIf="criteria.StarWarsDataType == EStarWarsDataType.Films">{{item.title}}</td>
+					<td>{{item.created}}</td>
+					<td>{{item.edited}}</td>
+					<td>{{item.url}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</ng-container>

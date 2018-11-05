@@ -1,0 +1,40 @@
+﻿<section>
+	<form #form="ngForm">
+		<div class="table-wrapper">
+			<table class="table table-condensed table-bordered items-table">
+				<thead>
+					<tr>
+						<th *ngIf="dataType == EStarWarsDataType.People ||
+								   dataType == EStarWarsDataType.Planets ||
+								   dataType == EStarWarsDataType.Species ||
+								   dataType == EStarWarsDataType.Vehicles ||
+								   dataType == EStarWarsDataType.Starships">Name</th>
+						<th *ngIf="dataType == EStarWarsDataType.People">Birth year</th>
+						<th *ngIf="dataType == EStarWarsDataType.People">Gender</th>
+						<th *ngIf="dataType == EStarWarsDataType.Planets">Population</th>
+						<th *ngIf="dataType == EStarWarsDataType.Planets">Diameter</th>
+						<th *ngIf="dataType == EStarWarsDataType.Vehicles ||
+							       dataType == EStarWarsDataType.Starships">Model</th>
+						<th *ngIf="dataType == EStarWarsDataType.Films">Films</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of data.results">
+						<td *ngIf="dataType == EStarWarsDataType.People ||
+								   dataType == EStarWarsDataType.Planets ||
+								   dataType == EStarWarsDataType.Species ||
+								   dataType == EStarWarsDataType.Vehicles ||
+								   dataType == EStarWarsDataType.Starships">{{item.name}}</td>
+						<td *ngIf="dataType == EStarWarsDataType.People">{{item.birth_year}}</td>
+						<td *ngIf="dataType == EStarWarsDataType.People">{{item.gender}}</td>
+						<td *ngIf="dataType == EStarWarsDataType.Planets">{{item.population}}</td>
+						<td *ngIf="dataType == EStarWarsDataType.Planets">{{item.diameter}}</td>
+						<td *ngIf="dataType == EStarWarsDataType.Vehicles ||
+							       dataType == EStarWarsDataType.Starships">{{item.model}}</td>
+						<td *ngIf="dataType == EStarWarsDataType.Films">{{item.title}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</section>

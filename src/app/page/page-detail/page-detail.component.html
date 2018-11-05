@@ -1,0 +1,219 @@
+﻿<form #form="ngForm">
+	<section>
+		<div class="flexed-form">
+			<div class="form-col">
+				<editor-text [(value)]="data.created" label="Created" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.edited" label="Edited" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.url" label="Url" readonly="true"></editor-text>
+			</div>
+		</div>
+	</section>
+
+	<div class="delimiter"></div>
+	
+	<div *ngIf="dataType == EStarWarsDataType.People">
+		<h3>Pilot description</h3>
+		<div class="flexed-form">
+			<div class="form-col">
+				<editor-text [(value)]="data.name" label="Name" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.height" label="Height" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.mass" label="Mass" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.hair_color" label="Hair color" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.skin_color" label="Skin color" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.eye_color" label="Eye color" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.birth_year" label="Birth year" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.gender" label="Gender" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.homeworld" label="Homeworld" readonly="true"></editor-text>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="dataType == EStarWarsDataType.Films">
+		<h3>Film description</h3>
+		<div class="flexed-form">
+			<div class="form-col">
+				<editor-text [(value)]="data.title" label="Title" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.episode_crawl" label="Episode Crawl" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.opening_crawl" label="Opening Crawl" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.director" label="Director" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.release_date" label="Release date" readonly="true"></editor-text>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="dataType == EStarWarsDataType.Planets">
+		<h3>Planent description</h3>
+		<div class="flexed-form">
+			<div class="form-col">
+				<editor-text [(value)]="data.name" label="Name" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.rotation_period" label="Rotation period" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.orbital_period" label="Orbital period" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.diameter" label="Diameter" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.climate" label="Climate" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.gravity" label="Gravity" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.terrain" label="Terrain" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.surface_water" label="Surface water" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.population" label="Population" readonly="true"></editor-text>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="dataType == EStarWarsDataType.Species">
+		<h3>Specie description</h3>
+		<div class="flexed-form">
+			<div class="form-col">
+				<editor-text [(value)]="data.name" label="Name" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.classification" label="Classification" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.description" label="Description" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.average_height" label="Average height" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.hair_colors" label="Hair colors" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.skin_colors" label="Skin colors" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.eye_colors" label="Eye colors" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.average_lifespan" label="Average lifespan" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.homeworld" label="Homeworld" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.language" label="Language" readonly="true"></editor-text>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="dataType == EStarWarsDataType.Vehicles">
+		<h3>Vehicle description</h3>
+		<div class="flexed-form">
+			<div class="form-col">
+				<editor-text [(value)]="data.name" label="Name" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.model" label="Model" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.manufacturer" label="Manufacturer" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.cost_in_credits" label="Cost in credits" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.length" label="Length" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.max_atmosphering_speed" label="Max atmosphering speed" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.crew" label="Crew" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.passengers" label="Passengers" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.cargo_capacity" label="Cargo capacity" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.consumables" label="Consumables" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.vehicle_class" label="Vehicle class" readonly="true"></editor-text>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="dataType == EStarWarsDataType.Starships">
+		<h3>Starships description</h3>
+		<div class="flexed-form">
+			<div class="form-col">
+				<editor-text [(value)]="data.name" label="Name" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.model" label="Model" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.manufacturer" label="Manufacturer" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.cost_in_credits" label="Cost in credits" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.length" label="Length" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.max_atmosphering_speed" label="Max atmosphering speed" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.crew" label="Crew" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.passengers" label="Passengers" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.cargo_capacity" label="Cargo capacity" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.consumables" label="Consumables" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.hyperdrive_rating" label="Hyperdrive rating" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.MGLT" label="MGLT" readonly="true"></editor-text>
+			</div>
+			<div class="form-col">
+				<editor-text [(value)]="data.starship_class" label="Starship class" readonly="true"></editor-text>
+			</div>
+		</div>
+	</div>
+</form>

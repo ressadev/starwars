@@ -1,0 +1,17 @@
+<div id="root">
+	<div id="left-pane" [class.expanded]="leftMenuExpanded" [class.collapsed]="!leftMenuExpanded">
+		<div class="pane-content">
+			<nav>
+				<a routerLink="page/search">party search</a>
+			</nav>
+		</div>
+	</div>
+	<div id="center-pane">
+		<div class="pane-content">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</div>
+
